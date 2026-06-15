@@ -22,5 +22,5 @@ The platform reduces the gap between citizens and government welfare programs by
 
 # One-Line Version
 
-# "BharatSahayak AI is an AI-powered platform that automatically identifies and explains government schemes a citizen is eligible for, making welfare access simpler, faster, and more inclusive."
+### "BharatSahayak AI is an AI-powered platform that automatically identifies and explains government schemes a citizen is eligible for, making welfare access simpler, faster, and more inclusive."
 
