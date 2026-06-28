@@ -1,0 +1,195 @@
+:root {
+    --saffron: #FF9933;
+    --white: #FFFFFF;
+    --green: #138808;
+    --navy: #000080;
+    --dark: #333333;
+    --light-bg: #f4f6f9;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--dark);
+}
+
+/* Navbar Tricolor Branding */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.flag-branding {
+    display: flex;
+    height: 8px;
+    width: 100%;
+}
+.stripe { flex: 1; }
+.saffron { background-color: var(--saffron); }
+.white { 
+    background-color: var(--white); 
+    display: flex; 
+    justify-content: center; 
+    position: relative;
+}
+.green { background-color: var(--green); }
+
+.chakra {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: -14px;
+    animation: spin 20s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+.nav-content h1 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--navy);
+}
+#languageSelect {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--navy);
+    font-weight: 600;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    max-width: 1300px;
+    margin: 30px auto;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.form-card {
+    flex: 1;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--saffron);
+}
+.form-card h2 {
+    margin-top: 0;
+    color: var(--navy);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--navy);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-submit:hover {
+    background-color: #000066;
+}
+
+/* Results Display Cards */
+.results-panel {
+    flex: 2;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--green);
+}
+.results-panel h2 {
+    margin-top: 0;
+    color: var(--green);
+}
+.placeholder-text {
+    color: #777777;
+    font-style: italic;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.scheme-card {
+    background: #fafafa;
+    border-left: 5px solid var(--navy);
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+.scheme-card h3 {
+    margin: 0 0 10px 0;
+    color: var(--navy);
+}
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+.btn-info, .btn-docs {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-info { background-color: #e6f0fa; color: var(--navy); }
+.btn-docs { background-color: #e6f4ea; color: var(--green); }
+
+/* Modal Window Style */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px; cursor: pointer;
+}
