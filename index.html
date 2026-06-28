@@ -3,103 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>National Scheme Eligibility Portal</title>
+    <title>Global Subsidy & Scheme Eligibility Engine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="flag-branding">
-            <div class="stripe saffron"></div>
-            <div class="stripe white">
-                <svg class="chakra" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="45" stroke="#000080" stroke-width="2" fill="none"/>
-                    <circle cx="50" cy="50" r="8" fill="#000080"/>
-                    <script>
-                        for(let i=0; i<24; i++) {
-                            let angle = (i * 15) * Math.PI / 180;
-                            let x2 = 50 + 45 * Math.cos(angle);
-                            let y2 = 50 + 45 * Math.sin(angle);
-                            document.write(`<line x1="50" y1="50" x2="${x2}" y2="${y2}" stroke="#000080" stroke-width="1.5" />`);
-                        }
-                    </script>
-                </svg>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <span class="portal-badge">LIVE SECURE</span>
+                <h1>Scheme Eligibility Engine</h1>
             </div>
-            <div class="stripe green"></div>
-        </div>
-        <div class="nav-content">
-            <h1>🇮🇳 National Scheme Eligibility Portal</h1>
-            <select id="languageSelect" onchange="changeLanguage()">
-                <option value="en">English</option>
-                <option value="te">తెలుగు (Telugu)</option>
-            </select>
+            <div class="lang-wrapper">
+                <label for="languageSelect">🌐</label>
+                <select id="languageSelect" onchange="changeLanguage()">
+                    <option value="en">English (US/UK)</option>
+                    <option value="te">తెలుగు (Telugu)</option>
+                </select>
+            </div>
         </div>
     </header>
 
-    <div class="container">
-        <main class="form-card">
-            <h2 id="lblFormTitle">Check Your Eligibility</h2>
+    <div class="main-layout">
+        <aside class="panel-card input-sidebar">
+            <h2 id="lblFormTitle" class="panel-title">User Demographics</h2>
             <form id="eligibilityForm" onsubmit="evaluateEligibility(event)">
-                <div class="form-group">
-                    <label id="lblAge" for="age">Age</label>
-                    <input type="number" id="age" min="0" max="120" value="25" required>
+                
+                <div class="input-field-group">
+                    <label id="lblAge" for="age">Current Age (Years)</label>
+                    <input type="number" id="age" min="0" max="120" value="28" required>
                 </div>
 
-                <div class="form-group">
-                    <label id="lblSalary" for="salary">Annual Income (₹)</label>
-                    <input type="number" id="salary" min="0" value="300000" required>
+                <div class="input-field-group">
+                    <label id="lblSalary" for="salary">Annual Income / Salary ($/₹)</label>
+                    <input type="number" id="salary" min="0" value="450000" required>
                 </div>
 
-                <div class="form-group">
-                    <label id="lblGender" for="gender">Gender</label>
+                <div class="input-field-group">
+                    <label id="lblGender" for="gender">Gender Identity</label>
                     <select id="gender">
-                        <option value="All">All / Other</option>
+                        <option value="All">All / Prefer not to say</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label id="lblState" for="state">State / UT Name</label>
+                <div class="input-field-group">
+                    <label id="lblState" for="state">Regional Territory / State</label>
                     <select id="state">
-                        <option value="All India">All India (Central Schemes)</option>
+                        <option value="All India">Universal / Nationwide Jurisdiction</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Telangana">Telangana</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Delhi">Delhi</option>
                         <option value="Karnataka">Karnataka</option>
                         <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Maharashtra">Maharashtra</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label id="lblOccupation" for="occupation">Occupation / Category</label>
+                <div class="input-field-group">
+                    <label id="lblOccupation" for="occupation">Professional Occupation Group</label>
                     <select id="occupation">
-                        <option value="All">General / Any Category</option>
-                        <option value="Rural Underprivileged">Rural Underprivileged</option>
-                        <option value="Urban Underprivileged">Urban Underprivileged</option>
-                        <option value="Farmer">Farmer</option>
-                        <option value="Student">Student</option>
+                        <option value="All">General Public / Unspecified</option>
+                        <option value="Farmer">Agricultural Worker / Farmer</option>
+                        <option value="Student">Enrolled Scholar / Student</option>
+                        <option value="Rural Underprivileged">Rural Disadvantaged / Underprivileged</option>
+                        <option value="Urban Underprivileged">Urban Disadvantaged / Underprivileged</option>
+                        <option value="Healthcare Personnel">Healthcare & Medical Worker</option>
+                        <option value="Small Business Owner">MSME / Small Business Owner</option>
                     </select>
                 </div>
 
-                <button type="submit" id="btnSubmit" class="btn-submit">Check Eligibility</button>
+                <button type="submit" id="btnSubmit" class="glow-btn-primary">Evaluate Profile</button>
             </form>
-        </main>
+        </aside>
 
-        <section class="results-panel">
-            <h2 id="lblResultsHeader">Eligible Schemes</h2>
+        <main class="panel-card results-view">
+            <h2 id="lblResultsHeader" class="panel-title text-gradient">Available Programs & Subsidies</h2>
             <div id="schemesContainer">
-                <p class="placeholder-text" id="lblPlaceholder">Fill out your profile details on the left panel to find matching Government schemes.</p>
+                <p class="placeholder-notice" id="lblPlaceholder">Please input your demographic profile matrix on the left panel to execute the eligibility evaluation engine.</p>
             </div>
-        </section>
+        </main>
     </div>
 
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle">Scheme Information</h3>
-            <div id="modalBody"></div>
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-window">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Program Details</h3>
+            <div id="modalBody">Data payload loading...</div>
         </div>
     </div>
 
