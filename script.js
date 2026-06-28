@@ -1,61 +1,61 @@
-// 1. Language Translation Dictionary Data
+// Localization Text Content Matrix
 const translations = {
     en: {
-        formTitle: "Check Your Eligibility",
-        age: "Age",
-        salary: "Annual Income (₹)",
-        gender: "Gender",
-        state: "State / UT Name",
-        occupation: "Occupation / Category",
-        submit: "Check Eligibility",
-        resultsHeader: "Eligible Schemes",
-        placeholder: "Fill out your profile details on the left panel to find matching Government schemes.",
-        detailsTitle: "Scheme Prerequisites & Target details",
-        docsTitle: "Required Documents Verification List"
+        formTitle: "User Demographics",
+        age: "Current Age (Years)",
+        salary: "Annual Income / Salary ($/₹)",
+        gender: "Gender Identity",
+        state: "Regional Territory / State",
+        occupation: "Professional Occupation Group",
+        submit: "Evaluate Profile",
+        resultsHeader: "Available Programs & Subsidies",
+        placeholder: "Please input your demographic profile matrix on the left panel to execute the eligibility evaluation engine.",
+        detailsTitle: "Program Description & Terms",
+        docsTitle: "Required Document Verification Checklist"
     },
     te: {
-        formTitle: "మీ అర్హతను తనిఖీ చేయండి",
-        age: "వయస్సు",
-        salary: "సంవత్సర ఆదాయం (₹)",
+        formTitle: "వినియోగదారు వివరాలు",
+        age: "ప్రస్తుత వయస్సు (సంవత్సరాలు)",
+        salary: "సంవత్సర ఆదాయం / జీతం ($/₹)",
         gender: "లింగం",
-        state: "రాష్ట్రం / కేంద్రపాలిత ప్రాంతం",
-        occupation: "వృత్తి / వర్గం",
-        submit: "అర్హతను తనిఖీ చేయండి",
-        resultsHeader: "అర్హత గల పథకాలు",
-        placeholder: "సరిపోలే ప్రభుత్వ పథకాలను కనుగొనడానికి ఎడమ ప్యానెల్‌లో మీ ప్రొఫైల్ వివరాలను పూరించండి.",
-        detailsTitle: "పథకం నిబంధనలు మరియు అర్హత వివరాలు",
-        docsTitle: "కావలసిన పత్రాల ధృవీకరణ జాబితా"
+        state: "ప్రాంతీయ భూభాగం / రాష్ట్రం",
+        occupation: "వృత్తిపరమైన సమూహం",
+        submit: "ప్రొఫైల్ తనిఖీ చేయండి",
+        resultsHeader: "అందుబాటులో ఉన్న పథకాలు & సబ్సిడీలు",
+        placeholder: "అర్హత మూల్యాంకన ఇంజిన్‌ను అమలు చేయడానికి దయచేసి ఎడమ ప్యానెల్‌లో మీ ప్రొఫైల్ వివరాలను నమోదు చేయండి.",
+        detailsTitle: "పథకం వివరణ & నిబంధనలు",
+        docsTitle: "అవసరమైన పత్రాల ధృవీకరణ జాబితా"
     }
 };
 
-// 2. Embedded Database array matching your structural rows directly
+// Application Functional Schemes Array Database Instance
 const schemesDatabase = [
     {
-        name: "Pradhan Mantri Awas Yojana",
-        type: "Central",
+        name: "National Housing Development Grant",
+        type: "Universal Central",
         state: "All India",
         gender: "All",
         occupation: "Rural Underprivileged",
-        details: "Provides affordable housing for poor urban and rural populations with interest subsidies.",
-        documents: "Aadhaar Card, Address Proof, Income Certificate, Bank Passbook Details."
+        details: "Provides dynamic low-interest capitalization allowances and down-payment relief for underprivileged home builders.",
+        documents: "Official Profile Identity, Residence Attestation, Income Verification File, Bank Financial Ledger Statement."
     },
     {
-        name: "YSR Cheyutha Scheme",
-        type: "State",
-        state: "Andhra Pradesh",
-        gender: "Female",
-        occupation: "Rural Underprivileged",
-        details: "Financial assistance of Rs.75,000 over four years to women of minority communities aged 45-60.",
-        documents: "Caste Certificate, Residence Proof, Aadhaar Card, Bank Account setup documentation."
-    },
-    {
-        name: "Rythu Bandhu Scheme",
-        type: "State",
+        name: "Agrarian Yield Investment Subsidies",
+        type: "Regional State Dev",
         state: "Telangana",
         gender: "All",
         occupation: "Farmer",
-        details: "Agricultural investment support scheme providing financial support directly to farmers per season.",
-        documents: "Pattadar Passbook, Aadhaar card, Bank details for direct benefit transfers."
+        details: "Direct cash liquidity allocation distributed at the seasonal startup marker to support basic equipment investment requirements.",
+        documents: "Agricultural land title certification records, Registered Farmer ID Card, Aadhaar profile link, Active Bank account."
+    },
+    {
+        name: "Women Entrepreneur Asset Allotment",
+        type: "Targeted State Initiative",
+        state: "Andhra Pradesh",
+        gender: "Female",
+        occupation: "Small Business Owner",
+        details: "Capital business expansion grant supporting local female enterprise creators over a 4-year financial distribution map.",
+        documents: "Business Registration Profile, Caste / Category Attestation, Local Resident Proof Certificate, Personal Aadhaar Card."
     }
 ];
 
@@ -73,6 +73,7 @@ function changeLanguage() {
     document.getElementById("lblOccupation").innerText = t.occupation;
     document.getElementById("btnSubmit").innerText = t.submit;
     document.getElementById("lblResultsHeader").innerText = t.resultsHeader;
+    
     if(document.getElementById("lblPlaceholder")) {
         document.getElementById("lblPlaceholder").innerText = t.placeholder;
     }
@@ -88,9 +89,9 @@ function evaluateEligibility(event) {
     const inputOccupation = document.getElementById("occupation").value;
     
     const container = document.getElementById("schemesContainer");
-    container.innerHTML = ""; // Clear existing display
+    container.innerHTML = ""; 
     
-    // Eligibility filter execution logic
+    // Core Logic Processing Filter Matrix Match Rules
     const matches = schemesDatabase.filter(scheme => {
         const stateMatch = (scheme.state === "All India" || scheme.state === inputState);
         const genderMatch = (scheme.gender === "All" || scheme.gender === inputGender);
@@ -99,19 +100,19 @@ function evaluateEligibility(event) {
     });
 
     if(matches.length === 0) {
-        container.innerHTML = `<p class="placeholder-text">No schemes found matching your criteria.</p>`;
+        container.innerHTML = `<p class="placeholder-notice">No program parameters match your target profile profile configurations.</p>`;
         return;
     }
 
     matches.forEach((scheme, index) => {
         const card = document.createElement("div");
-        card.className = "scheme-card";
+        card.className = "scheme-result-item";
         card.innerHTML = `
             <h3>${scheme.name}</h3>
-            <p><strong>Type:</strong> ${scheme.type} | <strong>Region:</strong> ${scheme.state}</p>
-            <div class="action-buttons">
-                <button class="btn-info" onclick="showDetails(${index})">ℹ️ Details</button>
-                <button class="btn-docs" onclick="showDocs(${index})">📄 Required Documents</button>
+            <div class="scheme-meta-tag">Classification: ${scheme.type} | Jurisdiction: ${scheme.state}</div>
+            <div class="action-row">
+                <button class="glow-action-cyan" onclick="showDetails(${index})">ℹ️ View Specs</button>
+                <button class="glow-action-emerald" onclick="showDocs(${index})">📄 Required Documents</button>
             </div>
         `;
         container.appendChild(card);
