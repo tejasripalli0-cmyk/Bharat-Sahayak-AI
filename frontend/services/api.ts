@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+  process.env.NEXT_PUBLIC_API_URL || "https://bharat-sahayak-ai-backend.onrender.com";
 
 export async function apiRequest(
   endpoint: string,
